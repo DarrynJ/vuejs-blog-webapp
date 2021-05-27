@@ -3,16 +3,16 @@
     <h2>My awesome Blog website</h2>
   </header>
   <img alt="Vue logo" src="./assets/logo.png" />
-  <Post />
+  <Posts />
 </template>
 
 <script>
-import Post from "./components/Post.vue";
+import Posts from "./components/Posts.vue";
 
 export default {
   name: "App",
   components: {
-    Post,
+    Posts,
   },
 };
 </script>

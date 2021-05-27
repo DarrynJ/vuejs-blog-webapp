@@ -1,6 +1,7 @@
 import * as functions from "firebase-functions";
 import * as firebase from "firebase-admin";
 import * as express from "express";
+import * as cors from "cors";
 
 //
 // Initialize the firebase application to allow connection to database
@@ -17,13 +18,17 @@ async function getPosts() {
 //
 // Initialize your server
 const server = express();
+const allowedOrigins = ["http://localhost:8080"];
+
+// Add CORS origins that can access your API
+server.use(cors({ origin: allowedOrigins }));
 
 //
 // Map your end-point to retrieve some data
 server.get("/posts", (request, response) => {
   //
   // Set your header values here, for example Cache-Control
-  response.set("Cache-Control", "public, max-age=300, s-maxage=600");
+  // response.set("Cache-Control", "public, max-age=300, s-maxage=600");
 
   //
   // Execute your get from here to retrieve your data from your firebase database
